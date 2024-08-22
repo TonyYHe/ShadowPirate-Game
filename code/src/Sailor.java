@@ -160,7 +160,7 @@ public class Sailor extends Character implements Attackable {
      */
     public boolean hasWon(Level level) {
         if (level instanceof Level0) {
-            return (getX() >= ((Level0)level).WIN_X) && (getY() > ((Level0)level).WIN_Y);
+            return (getX() >= Level0.WIN_X) && (getY() > Level0.WIN_Y);
         }
         if (level instanceof Level1) {
             return checkCollision(((Level1)level).getTreasure());
@@ -184,7 +184,7 @@ public class Sailor extends Character implements Attackable {
         if (attacker instanceof Bomb) {
             Bomb bomb = (Bomb) attacker;
             if (checkCollision(bomb)) {
-                setHealthPoints(getHealthPoints() - bomb.DAMAGE_POINTS);
+                setHealthPoints(getHealthPoints() - Bomb.DAMAGE_POINTS);
                 bomb.printDamageLog(this);
                 return true;
             }
